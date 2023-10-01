@@ -27,8 +27,8 @@ bricks = [3, 3, 3, 3, 2, 3, 1, 1, 1, 3]
 Here X=4, So the arrangement must be as below for all the bricks to disappear. 3 3 3 3 2 2 2 2 3 1 1 1 1 3 (Here three 2 color bricks and one 1 color brick must be inserted. That is a total of 4 bricks). Now the bricks left out will be 3 3 3 3 3 3 which can be touched and they will disappear.
 
 ## Constraints
-1 <= N <= 100
-2 <= K <= 50
+1 <= n <= 100
+2 <= x <= 50
 1 <= C <= N
 
 ## Output:
