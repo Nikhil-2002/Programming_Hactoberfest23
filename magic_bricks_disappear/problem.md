@@ -8,8 +8,8 @@ There are N magic bricks in a line and they can be of `C` colors. if we touch `x
 ## Test Cases
 ### Test Case 1:
 #### Input:
-n = 2
-x = 5
+n = 2, x = 5
+
 bricks = [1, 1]
 #### Output:
 3
@@ -18,8 +18,8 @@ Three bricks of color 1 must be inserted (as X = 5, we need 3 more bricks of col
 
 ### Test Case 2:
 #### Input:
-n = 10
-x = 4
+n = 10, x = 4
+
 bricks = [3, 3, 3, 3, 2, 3, 1, 1, 1, 3]
 #### Output:
 4
@@ -28,7 +28,9 @@ Here X=4, So the arrangement must be as below for all the bricks to disappear. 3
 
 ## Constraints
 1 <= n <= 100
+
 2 <= x <= 50
+
 1 <= C <= N
 
 ## Output:
