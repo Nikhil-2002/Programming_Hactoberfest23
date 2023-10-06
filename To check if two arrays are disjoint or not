@@ -1,0 +1,57 @@
+#include <iostream>
+#include <vector>
+#include <unordered_set>
+
+// Function to check if two arrays are disjoint
+bool areArraysDisjoint(const std::vector<int>& arr1, const std::vector<int>& arr2) {
+    std::unordered_set<int> set1;
+
+    // Add elements from the first array to the set
+    for (int num : arr1) {
+        set1.insert(num);
+    }
+
+    // Check if any element in the second array is present in the set
+    for (int num : arr2) {
+        if (set1.find(num) != set1.end()) {
+            // A common element is found, so the arrays are not disjoint
+            return false;
+        }
+    }
+
+    // No common elements were found, so the arrays are disjoint
+    return true;
+}
+
+int main() {
+    int n1, n2;
+    std::cout << "Enter the number of elements in the first array: ";
+    std::cin >> n1;
+
+    std::vector<int> arr1(n1);
+
+    std::cout << "Enter the elements of the first array: ";
+    for (int i = 0; i < n1; i++) {
+        std::cin >> arr1[i];
+    }
+
+    std::cout << "Enter the number of elements in the second array: ";
+    std::cin >> n2;
+
+    std::vector<int> arr2(n2);
+
+    std::cout << "Enter the elements of the second array: ";
+    for (int i = 0; i < n2; i++) {
+        std::cin >> arr2[i];
+    }
+
+    bool isDisjoint = areArraysDisjoint(arr1, arr2);
+
+    if (isDisjoint) {
+        std::cout << "The two arrays are disjoint." << std::endl;
+    } else {
+        std::cout << "The two arrays are not disjoint." << std::endl;
+    }
+
+    return 0;
+}
