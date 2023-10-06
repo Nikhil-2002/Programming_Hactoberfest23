@@ -1,0 +1,48 @@
+#include <iostream>
+#include <vector>
+#include <unordered_set>
+
+// Function to find repeating elements in an integer array
+std::vector<int> findRepeatingElements(const std::vector<int>& arr) {
+    std::vector<int> result;
+    std::unordered_set<int> seen;
+
+    for (int num : arr) {
+        if (seen.find(num) != seen.end()) {
+            // If the number is already in the set, it's a duplicate
+            result.push_back(num);
+        } else {
+            // Otherwise, add it to the set
+            seen.insert(num);
+        }
+    }
+
+    return result;
+}
+
+int main() {
+    int n;
+    std::cout << "Enter the number of elements in the array: ";
+    std::cin >> n;
+
+    std::vector<int> arr(n);
+
+    std::cout << "Enter the elements of the array: ";
+    for (int i = 0; i < n; i++) {
+        std::cin >> arr[i];
+    }
+
+    std::vector<int> repeatingElements = findRepeatingElements(arr);
+
+    if (repeatingElements.empty()) {
+        std::cout << "No repeating elements found in the array." << std::endl;
+    } else {
+        std::cout << "Repeating elements in the array: ";
+        for (int num : repeatingElements) {
+            std::cout << num << " ";
+        }
+        std::cout << std::endl;
+    }
+
+    return 0;
+}
