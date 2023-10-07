@@ -1,0 +1,64 @@
+#include <iostream>
+using namespace std;
+
+// Definition for singly-linked list.
+struct Node {
+    int data;
+    Node* next;
+    Node(int x) : data(x), next(nullptr) {}
+};
+
+class Solution {
+public:
+    Node* pairWiseSwap(Node* head) {
+        if (head == nullptr || head->next == nullptr) {
+            return head;
+        }
+
+        Node* prev = head;
+        Node* curr = head->next;
+        head = curr; // New head after swapping
+
+        while (true) {
+            Node* nextNode = curr->next;
+            curr->next = prev; // Swapping nodes
+
+            if (nextNode == nullptr || nextNode->next == nullptr) {
+                prev->next = nextNode;
+                break;
+            }
+
+            prev->next = nextNode->next; // Connecting previous swapped pair to the next pair
+            prev = nextNode; // Moving the prev pointer to the end of the current pair
+            curr = prev->next; // Moving the curr pointer to the start of the next pair
+        }
+
+        return head;
+    }
+};
+
+// Function to print the linked list
+void printList(Node* head) {
+    while (head != nullptr) {
+        cout << head->data << " ";
+        head = head->next;
+    }
+    cout << endl;
+}
+
+int main() {
+    Node* head = new Node(1);
+    head->next = new Node(2);
+    head->next->next = new Node(3);
+    head->next->next->next = new Node(4);
+
+    Solution obj;
+    cout << "Original Linked List: ";
+    printList(head);
+
+    Node* newHead = obj.pairWiseSwap(head);
+    cout << "Linked List after pairwise swapping: ";
+    printList(newHead);
+
+    return 0;
+}
